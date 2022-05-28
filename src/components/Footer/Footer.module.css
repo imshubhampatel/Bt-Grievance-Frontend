@@ -1,0 +1,12 @@
+a {
+  color: rgb(221, 221, 221);
+  text-decoration: none;
+  margin: 4px;
+  display: block;
+  padding: 2px;
+}
+
+a:hover {
+  color: #ffce0e;
+  text-decoration: underline;
+}

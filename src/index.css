@@ -1,13 +1,78 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+*,
+*::after,
+*::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html,
+body {
+  font-family: var(--Roboto);
+  height: 100%;
+  margin: 0px;
+}
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+  width: 1px;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 1px solid black;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+} 
+:root {
+  --Primary-color: #0076ef;
+  --Secondary-color: #eff2f5;
+  --ternery-color: #fdfdfd;
+  --background-color: #f1f3f6;
+  --white-color: #fff;
+  --light-blue: #24a0ed;
+  --light-gray: #ddd;
+  --medium-gray: #aaa;
+  --green-color: green;
+  --gray-color: gray;
+  --yellow-color: rgb(255, 229, 0);
+  --orange-color: #f7a200;
+  --orange-medium: #fd6f11;
+  --orange-dark: #fb641b;
+  --red-color: red;
+  --black: #2a2a2a;
+  --gray: #2a2a2a;
+  --original-black: #000;
+  --pramary-form-color: #e27ccc;
+  --secondary-from-color: #0076ef;
+  --pink-color: #f90085;
+  --Roboto: "Roboto", sans-serif;
+}
+
+.footer {
+  width: 100%;
+  background-color: #000;
+  margin: 20px 0px;
+  display: flex;
+  color: white;
+  justify-content: space-around;
+  padding: 20px;
 }

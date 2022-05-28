@@ -1,0 +1,39 @@
+/* color red e52b50 */
+
+.Parent_Form {
+  min-width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)),
+    url("https://btirt.ac.in/wp-content/uploads/2020/06/btirt-building.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+}
+.Form {
+  background-color: #fff;
+  width: 550px;
+  padding: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  transform: translate(-50%, -42%);
+  color: #e52b50;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  border: 2px solid #ddd;
+  margin-bottom: 40px;
+}
+.heading_form {
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+.button_submit {
+  width: 100%;
+  text-align: right;
+}
