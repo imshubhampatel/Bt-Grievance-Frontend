@@ -89,11 +89,6 @@ export default function AddressForm() {
       value = false;
       logErrors.email = "Please enter email";
     }
-    if (Values.enrollmentNumber == "") {
-      value = false;
-      logErrors.enrollmentNumber = "Please enter enrollment number";
-    }
-
     if (
       !(
         Values.enrollmentNumber.includes("0608") &&
@@ -104,8 +99,14 @@ export default function AddressForm() {
           Values.enrollmentNumber.includes("CE"))
       )
     ) {
+      if (Values.branch !== "MBA") {
+        value = false;
+        logErrors.enrollmentNumber = "Please enter valid Enroll. number";
+      }
+    }
+    if (Values.enrollmentNumber == "" && Values.branch !== "MBA") {
       value = false;
-      logErrors.enrollmentNumber = "Please enter valid Enroll. number";
+      logErrors.enrollmentNumber = "Please enter enrollment number";
     }
     if (Values.branch == "") {
       value = false;
@@ -225,22 +226,6 @@ export default function AddressForm() {
                   />
                   {FormValidation.email && <p>{FormValidation.email}</p>}
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    required
-                    id="enrollment"
-                    name="enrollment"
-                    label="Enrollment Number"
-                    onChange={changeHandler("enrollmentNumber")}
-                    fullWidth
-                    autoComplete="enrollment"
-                    variant="standard"
-                  />
-                  {FormValidation.enrollmentNumber && (
-                    <p>{FormValidation.enrollmentNumber}</p>
-                  )}
-                </Grid>
-
                 <Grid item sx={12} sm={6}>
                   <FormControl variant="standard" sx={{ minWidth: 220 }}>
                     <InputLabel id="demo-simple-select-standard-label">
@@ -264,6 +249,22 @@ export default function AddressForm() {
                   </FormControl>
                   {FormValidation.branch && <p>{FormValidation.branch}</p>}
                 </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    id="enrollment"
+                    name="enrollment"
+                    label="Enrollment Number"
+                    onChange={changeHandler("enrollmentNumber")}
+                    fullWidth
+                    autoComplete="enrollment"
+                    variant="standard"
+                  />
+                  {FormValidation.enrollmentNumber && (
+                    <p>{FormValidation.enrollmentNumber}</p>
+                  )}
+                </Grid>
+
                 <Grid item sx={12} sm={6}>
                   <FormControl variant="standard" sx={{ minWidth: 220 }}>
                     <InputLabel id="demo-simple-select-label">

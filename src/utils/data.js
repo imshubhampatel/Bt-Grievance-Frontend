@@ -1,5 +1,5 @@
 export const departmentInfo = {
-  branch: ["CS", "ME", "CE","EC","EX"],
+  branch: ["CS", "ME", "CE", "EC", "EX", "MBA"],
   semster: [
     "1 SEM",
     "2 SEM",
