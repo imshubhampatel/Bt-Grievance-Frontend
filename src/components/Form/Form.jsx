@@ -136,16 +136,11 @@ export default function AddressForm() {
     return value;
   };
 
-  useEffect(() => {
-    console.log(Values);
-  }, [Values]);
-
   // form submition handler
   const submitHandler = async (e) => {
     e.preventDefault();
     if (validate()) {
       setLoading(true);
-      console.log(FormValidation);
       const config = {
         method: "post",
         url: `http://localhost:3001/user/addGrievance`,
@@ -154,13 +149,10 @@ export default function AddressForm() {
 
       try {
         const result = await axios(config);
-        console.log(result);
         alert("Submitted Successfully");
         setLoading(false);
         window.location.reload();
       } catch (error) {
-        console.log(error.response.data);
-        alert("Please fill the fields carefully");
         alert(JSON.stringify(error.response.data.message));
         setLoading(false);
         window.location.reload();
