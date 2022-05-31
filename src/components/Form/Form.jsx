@@ -143,7 +143,7 @@ export default function AddressForm() {
       setLoading(true);
       const config = {
         method: "post",
-        url: `http://localhost:3001/user/addGrievance`,
+        url: `http://65.1.112.13/user/addGrievance`,
         data: Values,
       };
 
@@ -343,9 +343,9 @@ export default function AddressForm() {
                     style={{ width: "500px", height: "100px", padding: "10px" }}
                     onChange={changeHandler("grievance")}
                   />
-                  {/* {FormValidation.grievance && (
+                  {FormValidation.grievance && (
                     <p>{FormValidation.grievance}</p>
-                  )} */}
+                  )}
                 </Grid>
               </Grid>
 
