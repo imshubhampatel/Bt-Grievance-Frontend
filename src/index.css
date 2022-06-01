@@ -39,9 +39,9 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
-} 
+}
 :root {
   --Primary-color: #0076ef;
   --Secondary-color: #eff2f5;
