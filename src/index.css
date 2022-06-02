@@ -76,3 +76,27 @@ input[type="number"] {
   justify-content: space-around;
   padding: 20px;
 }
+
+.css-s0zxgh-MuiFormControl-root {
+  min-width: 240px !important;
+}
+
+@media screen and (max-width: 480px) {
+  .css-s0zxgh-MuiFormControl-root {
+    min-width: calc(100vw - 70px) !important;
+    max-width: 480px !important;
+  }
+  textarea {
+    width: calc(100vw - 50px) !important;
+    margin-top: 30px;
+    margin-left: 20px;
+    display: inline-block;
+    border: 1px solid black;
+  }
+  .footer {
+    min-width: 100%;
+  }
+  .error_para {
+    padding-left: 20px;
+  }
+}

@@ -10,3 +10,18 @@ a:hover {
   color: #ffce0e;
   text-decoration: underline;
 }
+
+@media screen and (max-width: 480px) {
+  html,
+  body {
+    height: 100%;
+  }
+  .box a,
+  .box p {
+    font-size: 10px;
+    font-weight: 300;
+  }
+  .button_submit button {
+    border: 8px solid blue;
+  }
+}

@@ -222,7 +222,7 @@ export default function AddressForm() {
                   {/* {FormValidation.email && <p>{FormValidation.email}</p>} */}
                 </Grid>
                 <Grid item sx={12} sm={6}>
-                  <FormControl variant="standard" sx={{ minWidth: 220 }}>
+                  <FormControl variant="standard" sx={{ minWidth: 373 }}>
                     <InputLabel id="demo-simple-select-standard-label">
                       {FormValidation.branch ? (
                         <span style={{ color: "#d32f2f" }}>
@@ -269,7 +269,11 @@ export default function AddressForm() {
                 </Grid>
 
                 <Grid item sx={12} sm={6}>
-                  <FormControl variant="standard" sx={{ minWidth: 220 }}>
+                  <FormControl
+                    id="form_select"
+                    variant="standard"
+                    sx={{ minWidth: 373 }}
+                  >
                     <InputLabel id="demo-simple-select-label">
                       {FormValidation.semester ? (
                         <span style={{ color: "#d32f2f" }}>
@@ -331,7 +335,7 @@ export default function AddressForm() {
                     <p>{FormValidation.contactNumber}</p>
                   )} */}
                 </Grid>
-                <Grid item xs={12}>
+                <Grid xs={12} sm={6}>
                   <TextareaAutosize
                     id="grievance"
                     name="grievance"
@@ -344,11 +348,10 @@ export default function AddressForm() {
                     onChange={changeHandler("grievance")}
                   />
                   {FormValidation.grievance && (
-                    <p>{FormValidation.grievance}</p>
+                    <p className="error_para">{FormValidation.grievance}</p>
                   )}
                 </Grid>
               </Grid>
-
               <Grid item xs={12} sm={6}>
                 <FormControlLabel
                   control={

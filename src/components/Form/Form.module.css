@@ -37,3 +37,39 @@
   width: 100%;
   text-align: right;
 }
+#form_select {
+  min-width: 220px;
+}
+
+textarea {
+  min-width: 80%;
+  height: 100px;
+  padding: 10px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.css-s0zxgh-MuiFormControl-root {
+  min-width: 220px !important;
+}
+
+@media screen and (max-width: 480px) {
+  .Parent_Form {
+    filter: blur(0px);
+    height: auto;
+    margin-top: 130px;
+  }
+  .Form {
+    position: static;
+    transform: translate(0%, 0%);
+  }
+  .Form {
+    max-width: 95%;
+    margin: 0 auto;
+  }
+  textarea {
+    max-width: 100%;
+  }
+  .button_submit {
+    text-align: center;
+  }
+}
