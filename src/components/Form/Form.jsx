@@ -143,7 +143,7 @@ export default function AddressForm() {
       setLoading(true);
       const config = {
         method: "post",
-        url: `https://grievance-machnism-backend-1.shubhampatel9.repl.co/user/addGrievance`,
+        url: `http://65.1.112.13/user/addGrievance`,
         data: Values,
       };
 
