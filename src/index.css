@@ -76,6 +76,9 @@ input[type="number"] {
   justify-content: space-around;
   padding: 20px;
 }
+.error_para {
+  padding-left: 20px;
+}
 
 .css-s0zxgh-MuiFormControl-root {
   min-width: 240px !important;

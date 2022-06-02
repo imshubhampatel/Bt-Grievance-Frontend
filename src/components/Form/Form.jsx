@@ -41,6 +41,7 @@ export default function AddressForm() {
   };
   // form error handler
 
+  const [isChecked, setIsChecked] = useState(false);
   const [FormValidation, setFormValidation] = useState({
     firstName: false,
     lastName: false,
@@ -78,8 +79,9 @@ export default function AddressForm() {
     }
     if (
       !(
-        Values.email.includes("@gmail.com") ||
-        Values.email.includes("@yahoo.com")
+        Values.email.length > 10 &&
+        (Values.email.includes("@gmail.com") ||
+          Values.email.includes("@yahoo.com"))
       )
     ) {
       value = false;
@@ -89,9 +91,11 @@ export default function AddressForm() {
       value = false;
       logErrors.email = "Please enter email";
     }
+
     if (
       !(
         Values.enrollmentNumber.includes("0608") &&
+        Values.enrollmentNumber.length > 10 &&
         (Values.enrollmentNumber.includes("CS") ||
           Values.enrollmentNumber.includes("ME") ||
           Values.enrollmentNumber.includes("EX") ||
@@ -105,6 +109,10 @@ export default function AddressForm() {
       }
     }
     if (Values.enrollmentNumber == "" && Values.branch !== "MBA") {
+      value = false;
+      logErrors.enrollmentNumber = "Please enter enrollment number";
+    }
+    if (Values.enrollmentNumber == "") {
       value = false;
       logErrors.enrollmentNumber = "Please enter enrollment number";
     }
@@ -139,7 +147,7 @@ export default function AddressForm() {
   // form submition handler
   const submitHandler = async (e) => {
     e.preventDefault();
-    if (validate()) {
+    if (validate() && isChecked) {
       setLoading(true);
       const config = {
         method: "post",
@@ -357,23 +365,38 @@ export default function AddressForm() {
                   control={
                     <Checkbox
                       color="secondary"
+                      onChange={(e) => setIsChecked((prev) => !isChecked)}
                       name="saveAddress"
-                      value="yes"
+                      value={isChecked}
                     />
                   }
                   label="I agree with terms and conditions."
                   required
                 />
               </Grid>
-              <div className={`${styles.button_submit}`}>
-                <Button
-                  variant="contained"
-                  style={{ background: "#e52b50" }}
-                  onClick={(e) => submitHandler(e)}
-                >
-                  Submit
-                </Button>
-              </div>
+              {isChecked ? (
+                <div className={`${styles.button_submit}`}>
+                  <Button
+                    variant="contained"
+                    style={{ background: "#e52b50" }}
+                    onClick={(e) => submitHandler(e)}
+                    error={true}
+                  >
+                    Submit
+                  </Button>
+                </div>
+              ) : (
+                <div className={`${styles.button_submit}`}>
+                  <Button
+                    variant="contained"
+                    style={{ background: "#ddd" }}
+                    onClick={(e) => submitHandler(e)}
+                    disabled="true"
+                  >
+                    Submit
+                  </Button>
+                </div>
+              )}
             </React.Fragment>
           </div>
         </>
