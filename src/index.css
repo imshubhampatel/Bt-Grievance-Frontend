@@ -80,12 +80,12 @@ input[type="number"] {
   padding-left: 20px;
 }
 
-.css-s0zxgh-MuiFormControl-root {
+.MuiFormControl-root {
   min-width: 240px !important;
 }
 
 @media screen and (max-width: 480px) {
-  .css-s0zxgh-MuiFormControl-root {
+  .MuiFormControl-root {
     min-width: calc(100vw - 70px) !important;
     max-width: 480px !important;
   }
