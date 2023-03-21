@@ -19,15 +19,14 @@ import { departmentInfo } from "../../utils/data";
 import Loader from "../Loader/Loader";
 export default function AddressForm() {
   const [Values, setValues] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    enrollmentNumber: "",
-    branch: "",
-    semester: "",
-    address: "",
-    grievance: "",
-    contactNumber: "",
+    firstName: "shubham",
+    lastName: "patel",
+    email: "shubhampatel2024@gmail.com",
+    enrollmentNumber: "0608CS211065",
+    branch: "CS",
+    semester: "4 SEM",
+    address: "kskd",
+    contactNumber: "9389112183",
     date: format(format.ISO8601_WITH_TZ_OFFSET_FORMAT, new Date()),
   });
 
@@ -50,7 +49,6 @@ export default function AddressForm() {
     branch: false,
     semester: false,
     address: false,
-    grievance: false,
     contactNumber: false,
   });
 
@@ -65,7 +63,6 @@ export default function AddressForm() {
       branch: false,
       semester: false,
       address: false,
-      grievance: false,
       contactNumber: false,
     };
 
@@ -136,10 +133,7 @@ export default function AddressForm() {
       value = false;
       logErrors.address = "Please enter address";
     }
-    if (Values.grievance == "") {
-      value = false;
-      logErrors.grievance = "Please enter grievance";
-    }
+
     setFormValidation(logErrors);
     return value;
   };
@@ -147,7 +141,10 @@ export default function AddressForm() {
   // form submition handler
   const submitHandler = async (e) => {
     e.preventDefault();
+    console.log("called")
+
     if (validate() && isChecked) {
+      console.log("called")
       setLoading(true);
       const config = {
         method: "post",
@@ -181,7 +178,7 @@ export default function AddressForm() {
           <div className={`${styles.Form}`}>
             <React.Fragment>
               <div className={`${styles.heading_form}`}>
-                <h3>BTIRT GRIEVANCE REDRESSAL MANAGEMENT PORTAL</h3>
+                <h3>BTIRT HORIZON : TECHFEST REGISTRATION PORTAL</h3>
               </div>
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6}>
@@ -343,22 +340,7 @@ export default function AddressForm() {
                     <p>{FormValidation.contactNumber}</p>
                   )} */}
                 </Grid>
-                <Grid xs={12} sm={6}>
-                  <TextareaAutosize
-                    id="grievance"
-                    name="grievance"
-                    placeholder="Please write here"
-                    error
-                    fullWidth
-                    autoComplete="grievance"
-                    variant="standard"
-                    style={{ width: "500px", height: "100px", padding: "10px" }}
-                    onChange={changeHandler("grievance")}
-                  />
-                  {FormValidation.grievance && (
-                    <p className="error_para">{FormValidation.grievance}</p>
-                  )}
-                </Grid>
+
               </Grid>
               <Grid item xs={12} sm={6}>
                 <FormControlLabel
@@ -382,7 +364,7 @@ export default function AddressForm() {
                     onClick={(e) => submitHandler(e)}
                     error={true}
                   >
-                    Submit
+                    Pay 100 Rupees
                   </Button>
                 </div>
               ) : (
@@ -393,7 +375,7 @@ export default function AddressForm() {
                     onClick={(e) => submitHandler(e)}
                     disabled="true"
                   >
-                    Submit
+                    Pay 100 Rupees
                   </Button>
                 </div>
               )}
