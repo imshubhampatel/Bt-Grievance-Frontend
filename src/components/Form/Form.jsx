@@ -148,15 +148,16 @@ export default function AddressForm() {
       setLoading(true);
       const config = {
         method: "post",
-        url: `http://65.1.112.13/user/addGrievance`,
+        url: `http://localhost:5000/user/addGrievance`,
         data: Values,
       };
 
       try {
         const result = await axios(config);
+        console.log({ result })
         alert("Submitted Successfully");
         setLoading(false);
-        window.location.reload();
+        // window.location.reload();
       } catch (error) {
         alert(JSON.stringify(error.response.data.message));
         setLoading(false);
@@ -204,6 +205,7 @@ export default function AddressForm() {
                     id="lastName"
                     name="lastName"
                     label="Last name"
+                    value={Values.lastName}
                     error={FormValidation.lastName && true}
                     onChange={changeHandler("lastName")}
                     fullWidth
@@ -221,6 +223,8 @@ export default function AddressForm() {
                     error={FormValidation.email && true}
                     onChange={changeHandler("email")}
                     fullWidth
+                    value={Values.email
+                    }
                     autoComplete="email"
                     variant="standard"
                   />
@@ -266,6 +270,7 @@ export default function AddressForm() {
                     onChange={changeHandler("enrollmentNumber")}
                     fullWidth
                     autoComplete="enrollment"
+                    value={Values.enrollmentNumber}
                     variant="standard"
                   />
                   {/* {FormValidation.enrollmentNumber && (
@@ -320,6 +325,8 @@ export default function AddressForm() {
                     fullWidth
                     autoComplete="State"
                     variant="standard"
+                    value={Values.address
+                    }
                   />
                   {/* {FormValidation.address && <p>{FormValidation.address}</p>} */}
                 </Grid>
@@ -334,6 +341,7 @@ export default function AddressForm() {
                     onChange={changeHandler("contactNumber")}
                     fullWidth
                     autoComplete="State"
+                    value={Values.contactNumber}
                     variant="standard"
                   />
                   {/* {FormValidation.contactNumber && (
