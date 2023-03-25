@@ -14,6 +14,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { useHistory } from "react-router-dom";
 
 import { departmentInfo } from "../../utils/data";
 import Loader from "../Loader/Loader";
@@ -29,6 +30,9 @@ export default function AddressForm() {
     contactNumber: "9389112183",
     date: format(format.ISO8601_WITH_TZ_OFFSET_FORMAT, new Date()),
   });
+  const history = useHistory();
+
+
 
   const [Loading, setLoading] = React.useState(false);
 
@@ -148,7 +152,7 @@ export default function AddressForm() {
       setLoading(true);
       const config = {
         method: "post",
-        url: `http://localhost:5000/user/addGrievance`,
+        url: `https://btirthorizon.in/api/user/addGrievance`,
         data: Values,
       };
 

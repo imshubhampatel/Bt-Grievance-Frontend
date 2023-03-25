@@ -14,7 +14,7 @@ export default function Checkout() {
         console.log("submitted");
         let res = await initializeRazorpay();
         let data = await fetch(
-            "http://localhost:5000/user/razorpay/initiate-transaction",
+            "https://btirthorizon.in/api/user/razorpay/initiate-transaction",
             {
                 method: "POST",
                 body: JSON.stringify({
@@ -45,7 +45,7 @@ export default function Checkout() {
             handler: async function (response) {
                 try {
                     let paymentStatus = await fetch(
-                        `http://localhost:5000/user/razorpay/razor_capture/${response.razorpay_payment_id}`,
+                        `https://btirthorizon.in/api/user/razorpay/razor_capture/${response.razorpay_payment_id}`,
                         {
                             method: "POST",
                             body: JSON.stringify({
@@ -62,7 +62,7 @@ export default function Checkout() {
                     console.log("paymentStatus", paymentStatus);
                     console.log("hey callling");
                     let makePayment = await fetch(
-                        `http://localhost:5000/user/razorpay/update-transaction`,
+                        `https://btirthorizon.in/api/user/razorpay/update-transaction`,
 
                         {
                             method: "POST",
