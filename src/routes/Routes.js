@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import Card from "../components/Cards/Card";
 import Checkout from "../components/Payments/Checkout";
+import { path } from "./../Path/Path";
 
 export default function ManageRoutes() {
   return (
@@ -13,7 +14,7 @@ export default function ManageRoutes() {
         <Navbar />
         <Routes>
           <Route path="/" element={<AddressForm />} />
-          <Route path="/make-payment" element={<Checkout />} />
+          <Route path={path.USER_MAKE_PAYMENT} element={<Checkout />} />
         </Routes>
         <Footer />
       </BrowserRouter>

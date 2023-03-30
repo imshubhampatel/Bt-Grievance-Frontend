@@ -153,15 +153,16 @@ export default function AddressForm() {
       setLoading(true);
       const config = {
         method: "post",
-        url: `http://3.6.211.131:5001/api/user/addGrievance`,
+        url: `http://localhost:5001/user/addGrievance`,
         data: Values,
       };
 
       try {
         const result = await axios(config);
         console.log({ result })
-        alert("Submitted Successfully");
-        navigate("/make-payment")
+        let { uniqueCode, enrollmentNumber, _id } = result.data.data;
+
+        navigate(`/${_id}/${enrollmentNumber}/${uniqueCode}/make-payment`)
         setLoading(false);
       } catch (error) {
         alert(JSON.stringify(error.response.data.message));
