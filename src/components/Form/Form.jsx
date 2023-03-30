@@ -14,6 +14,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { useNavigate } from "react-router-dom";
 
 import { departmentInfo } from "../../utils/data";
 import Loader from "../Loader/Loader";
@@ -29,6 +30,8 @@ export default function AddressForm() {
     contactNumber: "9389112183",
     date: format(format.ISO8601_WITH_TZ_OFFSET_FORMAT, new Date()),
   });
+
+  const navigate = useNavigate()
 
 
 
@@ -150,7 +153,7 @@ export default function AddressForm() {
       setLoading(true);
       const config = {
         method: "post",
-        url: `https://btirthorizon.in/api/user/addGrievance`,
+        url: `http://3.6.211.131:5001/api/user/addGrievance`,
         data: Values,
       };
 
@@ -158,6 +161,7 @@ export default function AddressForm() {
         const result = await axios(config);
         console.log({ result })
         alert("Submitted Successfully");
+        navigate("/make-payment")
         setLoading(false);
       } catch (error) {
         alert(JSON.stringify(error.response.data.message));
