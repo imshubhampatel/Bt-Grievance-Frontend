@@ -1,26 +1,27 @@
 import { initializeRazorpay } from "../../services/razorPayScript";
 import React, { useState } from 'react';
 import Loader from "../Loader/Loader";
+import { useParams } from "react-router-dom";
+import Card from "../Cards/Card";
 
 export default function Checkout() {
     const [amount, setAmount] = useState("10");
     const [loading, setLoading] = React.useState(false);
-
-
-
+    const params = useParams()
+    const { userId, enrollmentNo, uniqueCode } = params;
     async function onSubmitHandler(e) {
         e.preventDefault();
         setLoading(true)
         console.log("submitted");
         let res = await initializeRazorpay();
         let data = await fetch(
-            "https://btirthorizon.in/api/user/razorpay/initiate-transaction",
+            "http://localhost:5001/user/razorpay/initiate-transaction",
             {
                 method: "POST",
                 body: JSON.stringify({
-                    userUniqueCode: "lfm9aniz",
-                    eventName: "Hockey",
-                    amount: 10,
+                    userUniqueCode: uniqueCode,
+                    eventName: "Registration",
+                    amount: 100,
                 }),
 
                 headers: {
@@ -45,11 +46,11 @@ export default function Checkout() {
             handler: async function (response) {
                 try {
                     let paymentStatus = await fetch(
-                        `https://btirthorizon.in/api/user/razorpay/razor_capture/${response.razorpay_payment_id}`,
+                        `http://localhost:5001/user/razorpay/razor_capture/${response.razorpay_payment_id}`,
                         {
                             method: "POST",
                             body: JSON.stringify({
-                                userUniqueCode: "lfm9aniz",
+                                userUniqueCode: uniqueCode,
                                 amount: data.amount,
                             }),
 
@@ -62,13 +63,13 @@ export default function Checkout() {
                     console.log("paymentStatus", paymentStatus);
                     console.log("hey callling");
                     let makePayment = await fetch(
-                        `https://btirthorizon.in/api/user/razorpay/update-transaction`,
+                        `http://localhost:5001/user/razorpay/update-transaction`,
 
                         {
                             method: "POST",
                             body: JSON.stringify({
-                                USER: "123",
-                                uniqueCode: "lfm9aniz",
+                                USER: userId,
+                                uniqueCode: uniqueCode,
                                 ORDERID: data.receipt,
                                 TXNAMOUNT: data.amount / 100,
                                 STATUS: "TXN_SUCCESS",
@@ -96,53 +97,7 @@ export default function Checkout() {
 
     return (
         <div className="user_payment">
-            {
-                loading ? <Loader /> : <>\
-
-                    <h3>Recharge Wallet</h3>
-                    <form>
-                        <div>
-                            <label htmlFor="email-address">Amount</label>
-                            <input
-                                required
-                                type="number"
-                                name="number"
-                                id="number"
-                                autoComplete="number"
-                                value={amount}
-                                onChange={(e) => setAmount(e.target.value)}
-                                className="text-input"
-                            />
-                        </div>
-                    </form>
-
-                    <div className="payment_cards">
-                        <ul>
-                            <li value={10} onClick={() => setAmount(10)}>
-                                <span>10 </span>
-                            </li>
-                            <li value={50} onClick={() => setAmount(50)}>
-                                <span>50 </span>
-                            </li>
-                            <li value={100} onClick={() => setAmount(100)}>
-                                <span>100 </span>
-                            </li>
-                            <li value={200} onClick={() => setAmount(200)}>
-                                <span>200 </span>
-                            </li>
-                            <li value={500} onClick={() => setAmount(500)}>
-                                <span>500 </span>
-                            </li>
-                            <li value={1000} onClick={() => setAmount(1000)}>
-                                <span>1000 </span>
-                            </li>
-                        </ul>
-                    </div>
-                    <button type="submit" onClick={(e) => onSubmitHandler(e)}>
-                        Pay now
-                    </button>
-                </>
-            }
+            <Card onClickHandler={onSubmitHandler} />
         </div>
     );
 }
