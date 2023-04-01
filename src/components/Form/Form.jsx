@@ -153,7 +153,7 @@ export default function AddressForm() {
       setLoading(true);
       const config = {
         method: "post",
-        url: `http://localhost:5001/user/addGrievance`,
+        url: `https://btirthorizon.in/api/user/add-user`,
         data: Values,
       };
 
@@ -164,10 +164,12 @@ export default function AddressForm() {
 
         navigate(`/${_id}/${enrollmentNumber}/${uniqueCode}/make-payment`)
         setLoading(false);
+        debugger;
       } catch (error) {
         alert(JSON.stringify(error.response.data.message));
         setLoading(false);
-        window.location.reload();
+        console.log({ error: error.response.data })
+        debugger;
       }
     }
   };
