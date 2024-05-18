@@ -151,7 +151,7 @@ export default function AddressForm() {
       setLoading(true);
       const config = {
         method: "post",
-        url: `http://localhost:5000/user/addGrievance`,
+        url: `http://13.233.51.194:5000/user/addGrievance`,
         data: Values,
       };
 
