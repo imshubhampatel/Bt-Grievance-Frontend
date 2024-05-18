@@ -11,7 +11,7 @@ export default function Navbar() {
         </div>
         <div className={`${styles.right} ${styles.half}`}>
           <div className={`${styles.text_college} ${styles.text}`}>
-            <a href="https://btirt.ac.in">
+            <a rel="noreferrer" href="https://btirt.ac.in">
               <span>
                 Babulal Tarabai Institute of Research and Technology, Sironja
                 Sagar (M.P.)

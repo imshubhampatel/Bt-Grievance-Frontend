@@ -5,29 +5,33 @@ export default function Footer() {
   return (
     <div className="footer">
       <div className={`${styles.box} ${styles.box1}`}>
-        <a target="_blank" href="https://btirt.ac.in/about-btirt/">
+        <a target="_blank"  rel="noreferrer" href="https://btirt.ac.in/about-btirt/">
           <p>About BTIRT</p>
         </a>
         <a
           target="_blank"
+          rel="noreferrer"
           href="https://btirt.ac.in/about-btirt/vision-mission/"
         >
           <p>Vision & Mission</p>
         </a>
         <a
           target="_blank"
+          rel="noreferrer"
           href="https://btirt.ac.in/about-btirt/chairman-message/"
         >
           <p>Chairman Message</p>
         </a>
         <a
           target="_blank"
+          rel="noreferrer"
           href="https://btirt.ac.in/about-btirt/secretary-message/"
         >
           <p>Secretary Message</p>
         </a>
         <a
           target="_blank"
+          rel="noreferrer"
           href="https://btirt.ac.in/about-btirt/principal-message/"
         >
           <p>Principal Message</p>
@@ -35,21 +39,23 @@ export default function Footer() {
       </div>
       <div className={`${styles.box} ${styles.box2}`}>
         <a
+        rel="noreferrer"
           href="https://btirt.ac.in/bachelor-of-engineering-be/"
           target="_blank"
         >
           <p>Bachelor of Engineering (BE)</p>
         </a>
-        <a href="https://btirt.ac.in/masters-in-technology/" target="_blank">
+        <a href="https://btirt.ac.in/masters-in-technology/" target="_blank" rel="noreferrer">
           <p>Masters in Technology</p>
         </a>
         <a
           href="https://btirt.ac.in/master-of-business-administration/"
           target="_blank"
+          rel="noreferrer"
         >
           <p>Master of Business Administration</p>
         </a>
-        <a href="https://btirt.ac.in/polytechnic-diploma/" target="_blank">
+        <a  rel="noreferrer" href="https://btirt.ac.in/polytechnic-diploma/" target="_blank">
           <p>Polytechnic (Diploma)</p>
         </a>
       </div>
