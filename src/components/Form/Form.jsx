@@ -151,16 +151,20 @@ export default function AddressForm() {
       setLoading(true);
       const config = {
         method: "post",
-        url: `http://65.1.112.13/user/addGrievance`,
+        url: `http://localhost:5000/user/addGrievance`,
         data: Values,
       };
 
       try {
         const result = await axios(config);
+        console.log({result})
+        debugger;
         alert("Submitted Successfully");
         setLoading(false);
         window.location.reload();
       } catch (error) {
+        console.log(error.response.data)
+        debugger;
         alert(JSON.stringify(error.response.data.message));
         setLoading(false);
         window.location.reload();
